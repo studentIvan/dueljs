@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>dueljs page</title>
+	<script type="text/javascript" src="lib/duel.js"></script>
+</head>
+<body>
+	<div>Open the console</div>
+	<script type="text/javascript">
+	var channel = duel.channel('test');
+	document.title = 'dueljs page ' + channel.getWindowID();
+	setInterval(function() {
+		console.log(window.isMaster())
+	}, 500)
+	</script>
+</body>
+</html>
