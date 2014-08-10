@@ -6,7 +6,9 @@
     <script type="text/javascript" src="lib/duel.js"></script>
 </head>
 <body>
-<button onclick="channel.trigger('demo_trigger', 'hello world')">trigger</button>
+<button onclick="channel.broadcast('demo_trigger', 'hello world')">
+    channel.broadcast('demo_trigger', 'hello world')
+</button>
 <script type="text/javascript">
     var channel = duel.channel('test');
     document.title = 'Master ' + duel.getWindowID();
