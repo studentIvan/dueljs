@@ -1,18 +1,23 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Duel page</title>
-	<script type="text/javascript" src="lib/duel.js"></script>
+    <meta charset="utf-8">
+    <title>Duel page</title>
+    <script type="text/javascript" src="lib/duel.js"></script>
 </head>
 <body>
-	<div>Open the console</div>
-	<script type="text/javascript">
-	var channel = duel.channel('test');
-	document.title = 'Duel page ' + duel.getWindowID();
-	setInterval(function() {
-		console.log(window.isMaster())
-	}, 500)
-	</script>
+<button onclick="channel.trigger('demo_trigger', 'hello world')">trigger</button>
+<script type="text/javascript">
+    var channel = duel.channel('test');
+    document.title = 'Master ' + duel.getWindowID();
+
+    channel.on('demo_trigger', function (message) {
+        console.info((new Date).getTime(), message)
+    });
+
+    setInterval(function () {
+        document.title = (window.isMaster() ? 'Master ' : 'Slave ') + duel.getWindowID();
+    }, 100);
+</script>
 </body>
 </html>
