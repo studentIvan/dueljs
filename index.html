@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>DuelJS by studentIvan</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">DuelJS</h1>
+        <p class="header">JavaScript HTML5 Master/Slave Browser Tabs Helper</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/studentIvan/dueljs/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/studentIvan/dueljs/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/studentIvan/dueljs">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/studentIvan">studentIvan</a></p>
+
+
+      </header>
+      <section>
+        <h3>
+<a name="what-is-dueljs" class="anchor" href="#what-is-dueljs"><span class="octicon octicon-link"></span></a>What is DuelJS?</h3>
+
+<p>DuelJS is a fast and small JavaScript helper for master/slave browser tabs actions. Use it for optimize your client-server communication between browser and server and inside browser tabs.</p>
+
+<h3>
+<a name="a-brief-look" class="anchor" href="#a-brief-look"><span class="octicon octicon-link"></span></a>A Brief Look</h3>
+
+<p>Basic entity of DuelJS is channel. Channel provides unique community between browser tabs inside one site:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">channel</span> <span class="o">=</span> <span class="nx">duel</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">'example'</span><span class="p">);</span> <span class="c1">// build your channel</span>
+</pre></div>
+
+<p>Each window has 2 possible states: <strong>Master</strong> and <strong>Slave</strong>. 
+<strong>Master</strong> window - is a tab which currently working (has focus). The simple method for detection is:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nb">window</span><span class="p">.</span><span class="nx">isMaster</span><span class="p">()</span>
+</pre></div>
+
+<p>You can use it for get chat messages as example:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">isMaster</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nx">updateChatWindow</span><span class="p">();</span> <span class="c1">// user function</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="the-more-the-better" class="anchor" href="#the-more-the-better"><span class="octicon octicon-link"></span></a>The More The Better</h3>
+
+<p>You want something more? Oh yeah we have. The <strong>Broadcast</strong> is a system for broadcasting your messages to all specific channel’s members (tabs), just see this example:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+    <span class="kd">var</span> <span class="nx">channel</span> <span class="o">=</span> <span class="nx">duel</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">'test'</span><span class="p">);</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s1">'Master '</span> <span class="o">+</span> <span class="nx">duel</span><span class="p">.</span><span class="nx">getWindowID</span><span class="p">();</span>
+
+    <span class="nx">channel</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'demo_trigger'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">((</span><span class="k">new</span> <span class="nb">Date</span><span class="p">).</span><span class="nx">getTime</span><span class="p">(),</span> <span class="nx">message</span><span class="p">)</span>
+    <span class="p">});</span>
+
+    <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">isMaster</span><span class="p">()</span> <span class="o">?</span> <span class="s1">'Master '</span> <span class="o">:</span> <span class="s1">'Slave '</span><span class="p">)</span> <span class="o">+</span> <span class="nx">duel</span><span class="p">.</span><span class="nx">getWindowID</span><span class="p">();</span>
+    <span class="p">},</span> <span class="mi">100</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"channel.broadcast('demo_trigger', 'hello world')"</span><span class="nt">&gt;</span>
+    channel.broadcast('demo_trigger', 'hello world')
+<span class="nt">&lt;/button&gt;</span>
+</pre></div>
+
+<h3>
+<a name="appearance" class="anchor" href="#appearance"><span class="octicon octicon-link"></span></a>Appearance</h3>
+
+<ul>
+<li>Independence from other libraries (like jQuery/Underscore/etc)</li>
+<li>Fully compatible with them</li>
+<li>Easy for use</li>
+<li>Stable and attested</li>
+</ul><h3>
+<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with DuelJS? Contact <a href="mailto:mail@studentivan.ru">mail@studentivan.ru</a> and i’ll help you sort it out.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
