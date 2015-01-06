@@ -57,21 +57,21 @@ duel.DuelAbstractChannel = (function () {
      * @returns {string}
      */
     DuelAbstractChannel.prototype.getName = function () {
-        return this._name
+        return this._name;
     };
 
     /**
      * @returns {boolean}
      */
     DuelAbstractChannel.prototype.setCurrentWindowAsMaster = function () {
-        return true
+        return true;
     };
 
     /**
      * @returns {boolean}
      */
     DuelAbstractChannel.prototype.currentWindowIsMaster = function () {
-        return true
+        return true;
     };
 
     /**
@@ -82,7 +82,7 @@ duel.DuelAbstractChannel = (function () {
             this.executeTrigger({
                 name: trigger,
                 args: Array.prototype.slice.call(arguments, 1)
-            })
+            });
         }
     };
 
@@ -122,7 +122,7 @@ duel.DuelAbstractChannel = (function () {
  */
 duel._generateWindowID = function () {
     this._windowID = +Math.random().toString().split('.')[1];
-    return this._windowID
+    return this._windowID;
 };
 
 /**
@@ -130,7 +130,7 @@ duel._generateWindowID = function () {
  * @returns {number}
  */
 duel.getWindowID = function () {
-    return this._windowID ? this._windowID : this._generateWindowID()
+    return this._windowID ? this._windowID : this._generateWindowID();
 };
 
 /**
@@ -170,13 +170,13 @@ duel.DuelLocalStorageChannel.prototype.setCurrentWindowAsMaster = function () {
         } else {
             ch[wIndex].master = true
         }
-        localStorage.setItem(chName, JSON.stringify(ch))
+        localStorage.setItem(chName, JSON.stringify(ch));
     } else {
         localStorage.setItem(chName, JSON.stringify([
             {id: wID, master: true}
-        ]))
+        ]));
     }
-    return true
+    return true;
 };
 
 /**
@@ -192,9 +192,9 @@ duel.DuelLocalStorageChannel.prototype.currentWindowIsMaster = function () {
                 break;
             }
         }
-        return (wIndex === -1) ? false : ch[wIndex].master
+        return (wIndex === -1) ? false : ch[wIndex].master;
     } else {
-        return false
+        return false;
     }
 };
 
@@ -250,7 +250,7 @@ duel.channel = function (name) {
     var channel = this.isLocalStorageAvailable()
         ? new this.DuelLocalStorageChannel(name) : new this.DuelFakeChannel(name);
     duel.activeChannels.push(channel);
-    return channel
+    return channel;
 };
 
 /**
@@ -260,7 +260,7 @@ duel.channel = function (name) {
 duel.makeCurrentWindowMaster = function () {
     for (var i = duel.activeChannels.length - 1; i >= 0; i--) {
         try {
-            duel.activeChannels[i].setCurrentWindowAsMaster()
+            duel.activeChannels[i].setCurrentWindowAsMaster();
         } catch (e) {
             // stop to exceptions
         }
@@ -271,7 +271,7 @@ duel.makeCurrentWindowMaster = function () {
  * Makes tab focus trigger for special browsers
  */
 window.onfocus = function () {
-    duel.makeCurrentWindowMaster()
+    duel.makeCurrentWindowMaster();
 };
 
 /**
@@ -280,7 +280,7 @@ window.onfocus = function () {
  */
 window.isMaster = function () {
     return duel.activeChannels.length ?
-        duel.activeChannels[0].currentWindowIsMaster() : false
+        duel.activeChannels[0].currentWindowIsMaster() : false;
 };
 
 /**
@@ -333,7 +333,7 @@ duel.storageEvent = function (event) {
         for (var i = duel.activeChannels.length - 1; i >= 0; i--) {
             try {
                 if (duel.activeChannels[i].getName() == eventDetails.channelName) {
-                    duel.activeChannels[i].executeTrigger(eventDetails.triggerDetails)
+                    duel.activeChannels[i].executeTrigger(eventDetails.triggerDetails);
                 }
             } catch (e) {
                 // stop to exceptions

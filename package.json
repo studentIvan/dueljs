@@ -1,13 +1,14 @@
 {
-  "name": "dueljs",
+  "name": "duel",
   "version": "1.0.0",
   "description": "DuelJS - JavaScript HTML5 Master/Slave Browser Tabs Helper",
-  "main": "lib/duel.js",
+  "main": "public/lib/duel.js",
   "devDependencies": {
-
+    "http-server": "^0.6.1"
   },
   "scripts": {
-    "test": "test"
+    "pretest": "npm install",
+    "test": "http-server -a localhost -p 8624 -o -c-1"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
     "window",
     "javascript",
     "onfocus",
-    "broadcasting"
+    "broadcasting",
+    "document.hidden"
   ],
   "author": "Maslov Ivan <mail@studentivan.ru>",
   "license": "MIT",
