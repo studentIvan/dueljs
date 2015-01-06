@@ -1,0 +1,32 @@
+{
+  "name": "dueljs",
+  "version": "1.0.0",
+  "description": "DuelJS - JavaScript HTML5 Master/Slave Browser Tabs Helper",
+  "main": "lib/duel.js",
+  "devDependencies": {
+
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/studentIvan/dueljs.git"
+  },
+  "keywords": [
+    "dueljs",
+    "duel",
+    "master",
+    "slave",
+    "window",
+    "javascript",
+    "onfocus",
+    "broadcasting"
+  ],
+  "author": "studentivan.ru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/studentIvan/dueljs/issues"
+  },
+  "homepage": "http://dueljs.studentivan.ru"
+}
