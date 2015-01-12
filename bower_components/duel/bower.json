@@ -1,0 +1,26 @@
+{
+  "name": "duel",
+  "version": "1.1.0",
+  "homepage": "http://dueljs.studentivan.ru",
+  "authors": [
+    "Maslov Ivan <mail@studentivan.ru>"
+  ],
+  "description": "JavaScript HTML5 Master/Slave Browser Tabs Helper",
+  "main": "public/lib/duel.js",
+  "keywords": [
+    "dueljs",
+    "duel",
+    "master",
+    "slave",
+    "window",
+    "javascript",
+    "onfocus",
+    "broadcasting",
+    "document.hidden"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ]
+}
