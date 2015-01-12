@@ -1,6 +1,6 @@
 {
   "name": "duel",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "DuelJS - JavaScript HTML5 Master/Slave Browser Tabs Helper",
   "main": "public/lib/duel.js",
   "devDependencies": {
