@@ -1,13 +1,22 @@
 /*!
- * DuelJS JavaScript Library v1.0.0
+ * DuelJS JavaScript Library v1.1.0
  * https://github.com/studentIvan/dueljs
  *
- * Copyright 2014 Maslov Ivan
+ * Copyright 2015 Maslov Ivan
  * Released under the MIT license
  * https://raw.githubusercontent.com/studentIvan/dueljs/master/LICENSE
  */
 
 duel = {};
+
+/**
+ * Optional configuration
+ * Storage event improves performance in modern browsers
+ * See list of attested browsers in README.md
+ * default: true (IE - false)
+ * @type {boolean}
+ */
+duel.useStorageEvent = !/trident|MSIE/i.test(navigator.userAgent);
 
 /**
  * Common function for localStorage detection
@@ -91,9 +100,11 @@ duel.DuelAbstractChannel = (function () {
      * @param {{name: string, args: []}} triggerDetails
      */
     DuelAbstractChannel.prototype.executeTrigger = function (triggerDetails) {
-        try {
-            this._triggers[triggerDetails.name].apply(this, triggerDetails.args);
-        } catch (e) {
+        if (!window.isMaster()) {
+            try {
+                this._triggers[triggerDetails.name].apply(this, triggerDetails.args);
+            } catch (e) {
+            }
         }
     };
 
@@ -343,17 +354,34 @@ duel.storageEvent = function (event) {
 };
 
 /**
- * Sad but works everywhere
+ * Broadcast events engine
  */
 if (duel.isLocalStorageAvailable()) {
     duel.storageOldTriggerValue = localStorage.getItem('dueljs_trigger_event_key');
-    setInterval(function () {
-        if (localStorage.getItem('dueljs_trigger_event_key') != duel.storageOldTriggerValue) {
-            duel.storageOldTriggerValue = localStorage.getItem('dueljs_trigger_event_key');
-            duel.storageEvent({
-                key: 'dueljs_trigger',
-                newValue: localStorage.getItem('dueljs_trigger')
-            });
-        }
-    }, 200);
+    if (duel.useStorageEvent) {
+        /**
+         * Callback doesn't work in the master window
+         * See html5 storage event documentation
+         */
+        duel.addEvent(window, 'storage', function (e) {
+            var event = e || event || window.event;
+            if (event.key == 'dueljs_trigger_event_key' && event.newValue != duel.storageOldTriggerValue) {
+                duel.storageOldTriggerValue = localStorage.getItem('dueljs_trigger_event_key');
+                duel.storageEvent({
+                    key: 'dueljs_trigger',
+                    newValue: localStorage.getItem('dueljs_trigger')
+                });
+            }
+        });
+    } else {
+        setInterval(function () {
+            if (localStorage.getItem('dueljs_trigger_event_key') != duel.storageOldTriggerValue) {
+                duel.storageOldTriggerValue = localStorage.getItem('dueljs_trigger_event_key');
+                duel.storageEvent({
+                    key: 'dueljs_trigger',
+                    newValue: localStorage.getItem('dueljs_trigger')
+                });
+            }
+        }, 100);
+    }
  }
