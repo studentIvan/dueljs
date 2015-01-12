@@ -26,5 +26,5 @@ duel.useStorageEvent = false; // auto false in IE
 
 Internet Explorer does incorrect. So it using force `useStorageEvent = false` by default.
 
-######How it works without storage event?
-It using setInterval javascript checking.
+######How it works with Internet Explorer without storage event?
+Don't worry. It using setInterval javascript checking.
