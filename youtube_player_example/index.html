@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Остановлено</title>
+    <script type="text/javascript" src="duel.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="pretty.css">
+</head>
+<body>
+    <div id="preview"><div>PLAY</div></div>
+    <a href="index.html" target="_blank">Открыть новую вкладку</a>
+    <script type="text/javascript">
+    /** открываем канал с именем player */
+    var player = duel.channel('player');
+
+    /** превью для видео-ролика */
+    var previewDiv = document.getElementById('preview');
+
+    /**
+     * Регистрируем новое событие канала player
+     */
+    player.on('stop', function () {
+        /**
+         * Удаляем iframe
+         */
+        var frame = document.getElementsByTagName('iframe')[0];
+        frame.parentNode.removeChild(frame);
+
+        /**
+         * Показываем превью
+         */
+        previewDiv.style.display = 'block';
+
+        document.title = 'Остановлено';
+    });
+
+    previewDiv.onclick = function () {
+        /**
+         * Посылаем сигнал stop в канал player
+         */
+        player.broadcast('stop');
+
+        /**
+         * Создаем новый элемент iframe с видео из youtube
+         */
+        var frame = document.createElement("iframe");
+        frame.width = '859';
+        frame.height = '480';
+        frame.src = '//www.youtube.com/embed/xsV8TrF4gN0?rel=0&amp;autoplay=1';
+        frame.frameborder = '0';
+
+        /**
+         * Встраиваем его под превью и скрываем превью
+         */
+        previewDiv.parentNode.insertBefore(frame, previewDiv.nextSibling);
+        previewDiv.style.display = 'none';
+
+        document.title = 'Играем...';
+    }
+    </script>
+</body>
+</html>

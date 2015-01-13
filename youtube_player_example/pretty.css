@@ -1,0 +1,68 @@
+body {
+    background: #000;
+    width: 854px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+a {
+    position: absolute;
+    display: inline-block;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-decoration: none;
+    width: 831px;
+    text-align: center;
+    font-size: 18px;
+    border: 4px solid rgba(255, 255, 255, 0.01);
+    font-family: monospace;
+    transition: all 0.3s ease 0s;
+    border-radius: 3px;
+    bottom: 25px;
+}
+
+a:hover {
+    background: rgba(63, 81, 181, 0.6);
+    color: #fff;
+    border-color: rgba(63, 81, 181, 0.6);
+}
+
+iframe {
+    z-index: 1;
+    display: block;
+    width: 859px;
+    height: 480px;
+    position: absolute;
+    margin-top: 50px;
+    border: none;
+}
+
+#preview {
+    display: block;
+    width: 861px;
+    height: 481px;
+    position: absolute;
+    z-index: 1000;
+    background-color: transparent;
+    background: url('http://i.ytimg.com/vi/xsV8TrF4gN0/hqdefault.jpg') no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+#preview div {
+    position: relative;
+    top: 50%;
+    left: 45%;
+    display: block;
+    border-radius: 15px;
+    padding: 30px;
+    width: 45px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    transition: all 1s ease 0s;
+}
+
+#preview:hover div {
+    background: rgba(0, 0, 0, 0.3);
+}
