@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">-->
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -155,6 +155,20 @@
 </div>
 <!--[if !IE]>
 <script>fixScale(document);</script><![endif]-->
+<script type="text/javascript">
+    (window.onresize = function () {
+        var w = window.innerWidth
+                || document.documentElement.clientWidth
+                || document.body.clientWidth;
+        var wrapper = document.getElementsByClassName('wrapper')[0];
+        var limits = [600, 2000];
+        var newWidth = (w - 306 > limits[1]) ? limits[1] : ((w - 306 < limits[0]) ? limits[0] : w - 306);
+        wrapper.style.width = newWidth.toString() + 'px';
+        var section = document.getElementsByTagName('section')[0];
+        newWidth = (w - 500 > (limits[1] - 194)) ? (limits[1] - 194) : ((w - 500 < limits[0]) ? limits[0] : w - 500);
+        section.style.width = newWidth.toString() + 'px';
+    })();
+</script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function (d, w, c) {
