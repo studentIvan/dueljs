@@ -11,8 +11,9 @@ Documentation available on http://dueljs.readthedocs.org/en/latest/
 ######New in 1.2.0:
 * New method: channel.off - stop watching event
 * New method: channel.once - executing callback only one time and stop watching event
-* window.isMaster() now returns true even if no one channel has initialized [#3](https://github.com/studentIvan/dueljs/issues/3)
-* Uninteresting: dev test coverage (Mocha + PhantomJS)
+* New method: channel.emit - the alias of channel.broadcast
+* Function window.isMaster() now returns true even if no one channel has initialized [#3](https://github.com/studentIvan/dueljs/issues/3)
+* Dev test coverage (Mocha + PhantomJS)
 
 ######New in 1.1.0:
 * "storage" event improves performance in modern browsers.
