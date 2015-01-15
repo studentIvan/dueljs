@@ -4,13 +4,12 @@
     <meta charset="utf-8">
     <title>Duel page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="//yastatic.net/bootstrap/3.3.1/css/bootstrap.min.css">
-    <script type="text/javascript" src="lib/duel.js"></script>
+    <script type="text/javascript" src="../public/lib/duel.min.js"></script>
 </head>
 <body>
 <div class="container-fluid">
     <h2>Window <small id="wndID">...</small></h2>
-    <div><a class="btn btn-default" href="index.html" target="_blank">Open new window</a>&nbsp;
+    <div><a class="btn btn-default" href="phantom.tab.html" target="_blank">Open new window</a>&nbsp;
     <button class="btn btn-default" onclick="channel.broadcast('demo_trigger', 'ya', duel.getWindowID())">
         channel.broadcast('demo_trigger', 'ya', duel.getWindowID())
     </button></div>
@@ -24,7 +23,7 @@
     document.getElementById('wndID').innerHTML = (duel.getWindowID()).toString();
 
     channel.on('demo_trigger', function (message, wndID) {
-        console.info(wndID, (new Date), message);
+        window.callPhantom({ wndID: wndID });
     });
 
     setInterval(function () {
