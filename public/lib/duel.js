@@ -258,6 +258,13 @@ duel.activeChannels = [];
  * @returns {duel.DuelLocalStorageChannel}
  */
 duel.channel = function (name) {
+    for (var chID in duel.activeChannels) {
+        if (duel.activeChannels.hasOwnProperty(chID)) {
+            if (duel.activeChannels[chID].getName() == name) {
+                return duel.activeChannels[chID];
+            }
+        }
+    }
     var channel = this.isLocalStorageAvailable()
         ? new this.DuelLocalStorageChannel(name) : new this.DuelFakeChannel(name);
     duel.activeChannels.push(channel);

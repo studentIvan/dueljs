@@ -73,6 +73,15 @@ describe('DuelJS test case 1', function () {
                     it('window.isMaster() should be equal true with initialized channel', function () {
                         expect(window.isMaster()).to.equal(true);
                     });
+
+                    it('cunning plan', function () {
+                        channel = duel.channel('_test');
+                        channel = duel.channel('_test');
+                        var channel2 = duel.channel('_test2');
+                        var channel3 = duel.channel('_test');
+                        expect(duel.activeChannels.length).to.equal(2);
+                        expect(channel3).to.equal(channel);
+                    });
                 });
             });
         });
