@@ -1,7 +1,10 @@
 API
 ===
 
-Installing DuelJS
------------------
+duel
+----
 
-test
+**duel** is a global object.
+
+^test
+test3
