@@ -1,8 +1,8 @@
 DuelJS Documentation
 ====================
 
-Тут будет документация.
-The main documentation for the site is organized into a couple sections:
+.. note:: Documentation still in progress.
+Welcome to the DuelJS JavaScript library documentation.
 
 * :ref:`site-docs`
 

@@ -331,7 +331,7 @@ window.onfocus = function () {
  */
 window.isMaster = function () {
     return duel.activeChannels.length ?
-        duel.activeChannels[0].currentWindowIsMaster() : false;
+        duel.activeChannels[0].currentWindowIsMaster() : true;
 };
 
 /**

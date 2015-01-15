@@ -2,7 +2,14 @@ DuelJS v1.2.0 [![Documentation Status](https://readthedocs.org/projects/dueljs/b
 ======
 JavaScript HTML5 Master/Slave Browser Tabs Helper.
 
-See a brief documentation on the [the homepage](http://dueljs.studentivan.ru)
+See a brief look on [the homepage](http://dueljs.studentivan.ru)
+Documentation available on http://dueljs.readthedocs.org/en/latest/
+
+######New in 1.2.0:
+* New method: channel.off - stop watching event
+* New method: channel.once - executing callback only one time and stop watching event
+* window.isMaster() now returns true even if no one channel has initialized [#3](https://github.com/studentIvan/dueljs/issues/3)
+* Uninteresting: dev test coverage (Mocha + PhantomJS)
 
 ######New in 1.1.0:
 * "storage" event improves performance in modern browsers.

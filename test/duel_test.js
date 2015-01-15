@@ -73,8 +73,8 @@ describe('DuelJS test case 1', function () {
             expect(duel.getWindowID()).to.equal(windowID);
         });
 
-        it('window.isMaster() should be equal false without channels', function () {
-            expect(window.isMaster()).to.equal(false);
+        it('window.isMaster() should be equal true without channels', function () {
+            expect(window.isMaster()).to.equal(true);
 
             describe('DuelJS test case 2', function () {
                 describe('#channel testing', function () {
