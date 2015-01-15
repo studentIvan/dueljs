@@ -259,10 +259,9 @@ duel.activeChannels = [];
  */
 duel.channel = function (name) {
     for (var chID in duel.activeChannels) {
-        if (duel.activeChannels.hasOwnProperty(chID)) {
-            if (duel.activeChannels[chID].getName() == name) {
-                return duel.activeChannels[chID];
-            }
+        if (duel.activeChannels.hasOwnProperty(chID) &&
+            duel.activeChannels[chID].getName() == name) {
+            return duel.activeChannels[chID];
         }
     }
     var channel = this.isLocalStorageAvailable()
