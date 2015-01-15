@@ -14,4 +14,5 @@ User Documentation
 
     getting_started
     api
+    channel_api
 
