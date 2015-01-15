@@ -31,6 +31,8 @@ describe('DuelJS test case 1', function () {
             expect(duel.DuelLocalStorageChannel.prototype.executeTrigger).not.to.be.an('undefined');
             expect(duel.DuelLocalStorageChannel.prototype.on).not.to.be.an('undefined');
             expect(duel.DuelLocalStorageChannel.prototype.once).not.to.be.an('undefined');
+            expect(duel.DuelLocalStorageChannel.prototype.off).not.to.be.an('undefined');
+            expect(duel.DuelLocalStorageChannel.prototype.emit).not.to.be.an('undefined');
             expect(duel.DuelLocalStorageChannel.prototype.setCurrentWindowAsMaster).not.to.be.an('undefined');
             expect(duel.DuelLocalStorageChannel.prototype.currentWindowIsMaster).not.to.be.an('undefined');
             expect(duel.DuelLocalStorageChannel.prototype.broadcast).not.to.be.an('undefined');
@@ -39,6 +41,8 @@ describe('DuelJS test case 1', function () {
             expect(duel.DuelFakeChannel.prototype.executeTrigger).not.to.be.an('undefined');
             expect(duel.DuelFakeChannel.prototype.on).not.to.be.an('undefined');
             expect(duel.DuelFakeChannel.prototype.once).not.to.be.an('undefined');
+            expect(duel.DuelFakeChannel.prototype.off).not.to.be.an('undefined');
+            expect(duel.DuelFakeChannel.prototype.emit).not.to.be.an('undefined');
             expect(duel.DuelFakeChannel.prototype.setCurrentWindowAsMaster).not.to.be.an('undefined');
             expect(duel.DuelFakeChannel.prototype.currentWindowIsMaster).not.to.be.an('undefined');
             expect(duel.DuelFakeChannel.prototype.broadcast).not.to.be.an('undefined');
@@ -83,6 +87,9 @@ describe('DuelJS test case 1', function () {
                         var channel3 = duel.channel('_test');
                         expect(duel.activeChannels.length).to.equal(2);
                         expect(channel3).to.equal(channel);
+                        expect(channel.currentWindowIsMaster()).to.equal(true);
+                        expect(channel2.currentWindowIsMaster()).to.equal(true);
+                        expect(channel3.currentWindowIsMaster()).to.equal(true);
                     });
                 });
             });

@@ -85,6 +85,7 @@ duel.DuelAbstractChannel = (function () {
 
     /**
      * Only master can sends broadcast
+     * @param {string} trigger
      */
     DuelAbstractChannel.prototype.broadcast = function (trigger) {
         if (this.currentWindowIsMaster()) {
@@ -93,6 +94,14 @@ duel.DuelAbstractChannel = (function () {
                 args: Array.prototype.slice.call(arguments, 1)
             });
         }
+    };
+
+    /**
+     * Alias of broadcast
+     * @param {string} trigger
+     */
+    DuelAbstractChannel.prototype.emit = function (trigger) {
+        this.broadcast(trigger);
     };
 
     /**
@@ -108,8 +117,7 @@ duel.DuelAbstractChannel = (function () {
                 } else {
                     this._triggers[triggerDetails.name].apply(this, triggerDetails.args);
                 }
-            } catch (e) {
-            }
+            } catch (e) {}
         }
     };
 
@@ -135,6 +143,13 @@ duel.DuelAbstractChannel = (function () {
      */
     DuelAbstractChannel.prototype.once = function (trigger, callback) {
         this.on(trigger, [callback]);
+    };
+
+    /**
+     * @param {string} trigger
+     */
+    DuelAbstractChannel.prototype.off = function (trigger) {
+        try { delete this._triggers[trigger]; } catch (e) {}
     };
 
     return DuelAbstractChannel
