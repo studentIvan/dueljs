@@ -1,4 +1,7 @@
 API
 ===
 
+Installing DuelJS
+-----------------
+
 test

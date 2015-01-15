@@ -44,6 +44,7 @@ So we've got all the set up out of the way. Let's write some simple code.
 
 Broadcasting
 ------------
+
 When your tab had some channel (e.g. **my_first_channel** from previous section) you can do cross-tab broadcasting.
 
 Use simple commands:
@@ -57,6 +58,17 @@ Use simple commands:
 * **channel.once('event_name', function (a,r,g,u,m,e,n,t,s...) { do here what you want });**
     - define watcher for event_name, do it only one time and remove.
 
-If you still need more docs go to `API`_ section and study it
+YouTube player example
+----------------------
 
-.. _API: api
+Look at youtube-player integration demonstration on the russian language `here`_.
+
+Articles
+--------
+
+* `Задача коммуникации между вкладками и выявления активной вкладки <http://habrahabr.ru/post/247739/>`_ (russian)
+
+If you still need more docs go to `API`_ section
+
+.. _here: http://dueljs.studentivan.ru/youtube_player_example/
+.. _API: api.html
