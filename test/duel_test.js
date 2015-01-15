@@ -30,6 +30,7 @@ describe('DuelJS test case 1', function () {
             expect(duel.DuelLocalStorageChannel.prototype.getName).not.to.be.an('undefined');
             expect(duel.DuelLocalStorageChannel.prototype.executeTrigger).not.to.be.an('undefined');
             expect(duel.DuelLocalStorageChannel.prototype.on).not.to.be.an('undefined');
+            expect(duel.DuelLocalStorageChannel.prototype.once).not.to.be.an('undefined');
             expect(duel.DuelLocalStorageChannel.prototype.setCurrentWindowAsMaster).not.to.be.an('undefined');
             expect(duel.DuelLocalStorageChannel.prototype.currentWindowIsMaster).not.to.be.an('undefined');
             expect(duel.DuelLocalStorageChannel.prototype.broadcast).not.to.be.an('undefined');
@@ -37,6 +38,7 @@ describe('DuelJS test case 1', function () {
             expect(duel.DuelFakeChannel.prototype.getName).not.to.be.an('undefined');
             expect(duel.DuelFakeChannel.prototype.executeTrigger).not.to.be.an('undefined');
             expect(duel.DuelFakeChannel.prototype.on).not.to.be.an('undefined');
+            expect(duel.DuelFakeChannel.prototype.once).not.to.be.an('undefined');
             expect(duel.DuelFakeChannel.prototype.setCurrentWindowAsMaster).not.to.be.an('undefined');
             expect(duel.DuelFakeChannel.prototype.currentWindowIsMaster).not.to.be.an('undefined');
             expect(duel.DuelFakeChannel.prototype.broadcast).not.to.be.an('undefined');

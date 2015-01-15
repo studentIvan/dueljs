@@ -87,7 +87,7 @@ duel.DuelAbstractChannel = (function () {
      * Only master can sends broadcast
      */
     DuelAbstractChannel.prototype.broadcast = function (trigger) {
-        if (window.isMaster()) {
+        if (this.currentWindowIsMaster()) {
             this.executeTrigger({
                 name: trigger,
                 args: Array.prototype.slice.call(arguments, 1)
@@ -100,9 +100,14 @@ duel.DuelAbstractChannel = (function () {
      * @param {{name: string, args: []}} triggerDetails
      */
     DuelAbstractChannel.prototype.executeTrigger = function (triggerDetails) {
-        if (!window.isMaster()) {
+        if (!this.currentWindowIsMaster()) {
             try {
-                this._triggers[triggerDetails.name].apply(this, triggerDetails.args);
+                if (this._triggers[triggerDetails.name] instanceof Array) {
+                    this._triggers[triggerDetails.name][0].apply(this, triggerDetails.args);
+                    delete this._triggers[triggerDetails.name];
+                } else {
+                    this._triggers[triggerDetails.name].apply(this, triggerDetails.args);
+                }
             } catch (e) {
             }
         }
@@ -110,7 +115,7 @@ duel.DuelAbstractChannel = (function () {
 
     /**
      * @param {string} trigger
-     * @param {function} callback
+     * @param {function|[]} callback
      */
     DuelAbstractChannel.prototype.on = function (trigger, callback) {
         if (!this._triggers) {
@@ -122,6 +127,14 @@ duel.DuelAbstractChannel = (function () {
         }
 
         this._triggers[trigger] = callback;
+    };
+
+    /**
+     * @param {string} trigger
+     * @param {function} callback
+     */
+    DuelAbstractChannel.prototype.once = function (trigger, callback) {
+        this.on(trigger, [callback]);
     };
 
     return DuelAbstractChannel
@@ -213,7 +226,7 @@ duel.DuelLocalStorageChannel.prototype.currentWindowIsMaster = function () {
  * Only master can sends broadcast
  */
 duel.DuelLocalStorageChannel.prototype.broadcast = function (trigger) {
-    if (window.isMaster()) {
+    if (this.currentWindowIsMaster()) {
         // broadcast new task
         localStorage.setItem('dueljs_trigger', JSON.stringify({
             channelName: this.getName(),
