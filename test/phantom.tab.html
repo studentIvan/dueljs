@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Duel page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="../public/lib/duel.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <h2>Window <small id="wndID">...</small></h2>
+    <div><a class="btn btn-default" href="phantom.tab.html" target="_blank">Open new window</a>&nbsp;
+    <button class="btn btn-default" onclick="channel.broadcast('demo_trigger', 'ya', duel.getWindowID())">
+        channel.broadcast('demo_trigger', 'ya', duel.getWindowID())
+    </button></div>
+    <div style="margin-top: 10px; color: #777777"><em>
+        Hint: open the developer console before broadcasting.
+    </em></div>
+</div>
+<script type="text/javascript">
+    var channel = duel.channel('test');
+    document.title = 'Master ' + duel.getWindowID();
+    document.getElementById('wndID').innerHTML = (duel.getWindowID()).toString();
+
+    channel.on('demo_trigger', function (message, wndID) {
+        window.callPhantom({ wndID: wndID });
+    });
+
+    setInterval(function () {
+        document.title = (window.isMaster() ? 'Master ' : 'Slave ') + duel.getWindowID();
+    }, 100);
+</script>
+</body>
+</html>

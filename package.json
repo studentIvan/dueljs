@@ -4,11 +4,14 @@
   "description": "DuelJS - JavaScript HTML5 Master/Slave Browser Tabs Helper",
   "main": "public/lib/duel.js",
   "devDependencies": {
-    "http-server": "^0.6.1"
+    "chai": "^1.10.0",
+    "mocha": "^2.1.0",
+    "mocha-phantomjs": "^3.5.3",
+    "phantomjs": "^1.9.13"
   },
   "scripts": {
-    "pretest": "npm install",
-    "test": "http-server -a 0.0.0.0 -p 8624 -c-1"
+    "pretest": "npm install && mocha-phantomjs test/mocha.test.html",
+    "test": "phantomjs test/phantom_script.js"
   },
   "repository": {
     "type": "git",
