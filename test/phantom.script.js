@@ -49,7 +49,7 @@ page1.open('test/phantom.tab.html', function () {
             shouldBeEqual(broadcast, true);
 
             /**
-             * @TODO: Why storage event doesn't work in phantom?
+             * Why storage event doesn't work in phantom?
              * https://github.com/ariya/phantomjs/issues/12879
              */
 

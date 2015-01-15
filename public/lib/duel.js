@@ -107,9 +107,14 @@ duel.DuelAbstractChannel = (function () {
     /**
      *
      * @param {{name: string, args: []}} triggerDetails
+     * @param {boolean} force
      */
-    DuelAbstractChannel.prototype.executeTrigger = function (triggerDetails) {
-        if (!this.currentWindowIsMaster()) {
+    DuelAbstractChannel.prototype.executeTrigger = function (triggerDetails, force) {
+        force = force || false;
+        if (!(triggerDetails instanceof Object)) {
+            throw "triggerDetails should be an Object";
+        }
+        if (!this.currentWindowIsMaster() || force) {
             try {
                 if (this._triggers[triggerDetails.name] instanceof Array) {
                     this._triggers[triggerDetails.name][0].apply(this, triggerDetails.args);
