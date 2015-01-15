@@ -23,8 +23,7 @@ Put it into your webpage:
 ``<script type="text/javascript" src="path/to/duel.min.js"></script>``
 
 So we've got all the set up out of the way. Let's write some simple code.
-
-.. sourcecode:: js
+::
     <script type="text/javascript">
     var channel = duel.channel('my_first_channel'); // now you have opened some channel, this tab is connected to it
     setInterval(function () {
@@ -35,4 +34,5 @@ So we've got all the set up out of the way. Let's write some simple code.
             document.title = 'Slave ' + duel.getWindowID();
         }
     </script>
-    :data string list_endpoint: API endpoint for resource.
+
+test
