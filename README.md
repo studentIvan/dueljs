@@ -1,4 +1,5 @@
-DuelJS v1.2.0 [![Documentation Status](https://readthedocs.org/projects/dueljs/badge/?version=latest)](https://readthedocs.org/projects/dueljs/?badge=latest)
+DuelJS v1.2.0
+[![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat-square)](https://readthedocs.org/projects/dueljs/?badge=latest) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/studentIvan/dueljs/master/LICENSE) [![Bower](https://img.shields.io/bower/v/duel.svg?style=flat-square)](http://bower.io/search/?q=duel) [![](https://img.shields.io/github/issues-raw/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/issues/) [![GitHub stars](https://img.shields.io/github/stars/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/stargazers)
 ======
 JavaScript HTML5 Master/Slave Browser Tabs Helper.
 
