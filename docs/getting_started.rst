@@ -21,10 +21,12 @@ You can install it using bower or simple copy duel.js main file into your site o
 
 
 Put it into your webpage:
+
 .. code-block:: html
     <script type="text/javascript" src="path/to/duel.min.js"></script>
 
 So we've got all the set up out of the way. Let's write some simple code.
+
 .. code-block:: javascript
     <script type="text/javascript">
     var channel = duel.channel('my_first_channel'); // now you have opened some channel, this tab is connected to it
