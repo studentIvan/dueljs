@@ -1,4 +1,3 @@
-.. highlight:: html
 Getting Started
 ===============
 
