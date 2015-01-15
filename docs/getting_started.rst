@@ -15,6 +15,7 @@ Installing DuelJS
 You can install it using bower or simple copy duel.js main file into your site or even clone git repository.
 
 Different ways:
+
 * Bower package: ``bower install duel --save``
 * Git repo: ``git clone https://github.com/studentIvan/dueljs.git``
 * Main file: `duel.min.js <https://github.com/studentIvan/dueljs/blob/master/public/lib/duel.min.js>`_
