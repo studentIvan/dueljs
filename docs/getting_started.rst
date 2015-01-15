@@ -54,5 +54,9 @@ Use simple commands:
     - define watcher for event_name.
 * **channel.off('event_name');**
     - remove event_name watcher.
+* **channel.once('event_name', function (a,r,g,u,m,e,n,t,s...) { do here what you want });**
+    - define watcher for event_name, do it only one time and remove.
 
-If you still need more docs go to API section and study it
+If you still need more docs go to `API`_ section and study it
+
+.. _API: api
