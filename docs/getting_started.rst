@@ -64,9 +64,8 @@ Articles and examples
 ---------------------
 
 * `Задача коммуникации между вкладками и выявления активной вкладки <http://habrahabr.ru/post/247739/>`_ (russian)
-* Look at youtube-player integration demonstration on the russian language `here`_.
+* `Youtube-player integration demonstration <http://dueljs.studentivan.ru/youtube_player_example/>`_ (russian)
 
 If you still need more docs go to `API`_ section
 
-.. _here: http://dueljs.studentivan.ru/youtube_player_example/
 .. _API: api.html
