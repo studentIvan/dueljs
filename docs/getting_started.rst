@@ -16,7 +16,7 @@ You can install it using bower or simple copy duel.js main file into your site o
 
 * Bower package: ``bower install duel --save``
 * Git repo: ``git clone https://github.com/studentIvan/dueljs.git``
-* Main file: `https://github.com/studentIvan/dueljs/blob/master/public/lib/duel.min.js <https://github.com/studentIvan/dueljs/blob/master/public/lib/duel.min.js>`_
+* Main file: `duel.min.js <https://github.com/studentIvan/dueljs/blob/master/public/lib/duel.min.js>`_
 
 
 Put it into your webpage:
@@ -25,14 +25,19 @@ Put it into your webpage:
 So we've got all the set up out of the way. Let's write some simple code.
 ::
     <script type="text/javascript">
-    var channel = duel.channel('my_first_channel'); // now you have opened some channel, this tab is connected to it
+    var channel = duel.channel('my_first_channel');
+    // now you have opened some channel, this tab is connected to it
+
     setInterval(function () {
-        if (channel.currentWindowIsMaster()) { // here you checking is this tab active (in focus) or not
+        if (channel.currentWindowIsMaster()) {
+            // here you checking is this tab active (in focus) or not
             // you can use alternative syntax: if (window.isMaster()) { ...
-            document.title = 'Master ' + duel.getWindowID(); // duel.getWindowID returns a unique browser tab id
+
+            document.title = 'Master ' + duel.getWindowID();
+            // duel.getWindowID returns a unique browser tab id
+
         } else {
             document.title = 'Slave ' + duel.getWindowID();
         }
     </script>
 
-test
