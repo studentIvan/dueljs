@@ -1,6 +1,7 @@
 /*!
- * DuelJS JavaScript Library v1.1.0
+ * DuelJS JavaScript Library v1.2.0
  * https://github.com/studentIvan/dueljs
+ * http://dueljs.readthedocs.org/en/latest/
  *
  * Copyright 2015 Maslov Ivan
  * Released under the MIT license

@@ -1,4 +1,4 @@
-DuelJS v1.1.0 [![Documentation Status](https://readthedocs.org/projects/dueljs/badge/?version=latest)](https://readthedocs.org/projects/dueljs/?badge=latest)
+DuelJS v1.2.0 [![Documentation Status](https://readthedocs.org/projects/dueljs/badge/?version=latest)](https://readthedocs.org/projects/dueljs/?badge=latest)
 ======
 JavaScript HTML5 Master/Slave Browser Tabs Helper.
 
