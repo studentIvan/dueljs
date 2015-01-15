@@ -33,14 +33,6 @@ Common function for copy objects.
 * returns: object
 * throws error on unsupported type
 
-duel.clone(obj:object)
-----------------------
-Common function for copy objects.
-
-* public
-* type: function
-* returns: object
-
 duel.DuelAbstractChannel
 ------------------------
 Abstract class for possible duel channels. Will support another channels besides localStorage in future.
