@@ -1,8 +1,8 @@
 {
-  "name": "duel",
-  "version": "1.2.0",
-  "description": "DuelJS - JavaScript HTML5 Master/Slave Browser Tabs Helper",
-  "main": "public/lib/duel.js",
+  "name": "tabninja",
+  "version": "0.0.1",
+  "description": "TabNinja - JavaScript HTML5 Master/Slave Browser Tabs Helper",
+  "main": "public/lib/tabninja.js",
   "devDependencies": {
     "chai": "^1.10.0",
     "mocha": "^2.1.0",
@@ -10,14 +10,16 @@
     "phantomjs": "^1.9.13"
   },
   "scripts": {
-    "pretest": "npm install && mocha-phantomjs test/mocha.test.html",
-    "test": "phantomjs test/phantom.script.js"
+    "pretest": "npm install",
+    "test": "mocha-phantomjs test/mocha.test.html"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/studentIvan/dueljs.git"
+    "url": "https://github.com/studentIvan/tabninja.git"
   },
   "keywords": [
+    "tabninjajs",
+    "tabninja",
     "dueljs",
     "duel",
     "master",
@@ -31,7 +33,7 @@
   "author": "Maslov Ivan <mail@studentivan.ru>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/studentIvan/dueljs/issues"
+    "url": "https://github.com/studentIvan/tabninja/issues"
   },
-  "homepage": "http://dueljs.studentivan.ru"
+  "homepage": "https://github.com/studentIvan/tabninja"
 }

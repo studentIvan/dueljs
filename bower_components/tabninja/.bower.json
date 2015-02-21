@@ -1,13 +1,18 @@
 {
-  "name": "duel",
-  "version": "1.2.0",
-  "homepage": "http://dueljs.studentivan.ru",
+  "name": "tabninja",
+  "version": "0.0.1",
+  "homepage": "https://github.com/studentIvan/tabninja",
+  "dependencies": {
+    "duel": "^1.2.0"
+  },
   "authors": [
     "Maslov Ivan <mail@studentivan.ru>"
   ],
   "description": "JavaScript HTML5 Master/Slave Browser Tabs Helper",
-  "main": "public/lib/duel.js",
+  "main": "public/lib/tabninja.js",
   "keywords": [
+    "tabninjajs",
+    "tabninja",
     "dueljs",
     "duel",
     "master",
@@ -25,13 +30,14 @@
     "docs",
     "test"
   ],
-  "_release": "1.2.0",
+  "_release": "0.0.1",
   "_resolution": {
     "type": "version",
-    "tag": "1.2.0",
-    "commit": "e49e64c50f7d212c09a57bdcee1717b46cde76a4"
+    "tag": "0.0.1",
+    "commit": "25449719edf0bcfa9d143aef86d793b8b2844389"
   },
-  "_source": "git://github.com/studentIvan/dueljs.git",
-  "_target": "^1.2.0",
-  "_originalSource": "duel"
+  "_source": "git://github.com/studentIvan/tabninja.git",
+  "_target": "~0.0.1",
+  "_originalSource": "tabninja",
+  "_direct": true
 }

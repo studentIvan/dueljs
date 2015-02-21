@@ -1,6 +1,7 @@
 /*!
- * DuelJS JavaScript Library v1.1.0
+ * DuelJS JavaScript Library v1.2.0
  * https://github.com/studentIvan/dueljs
+ * http://dueljs.readthedocs.org/en/latest/
  *
  * Copyright 2015 Maslov Ivan
  * Released under the MIT license
@@ -85,9 +86,10 @@ duel.DuelAbstractChannel = (function () {
 
     /**
      * Only master can sends broadcast
+     * @param {string} trigger
      */
     DuelAbstractChannel.prototype.broadcast = function (trigger) {
-        if (window.isMaster()) {
+        if (this.currentWindowIsMaster()) {
             this.executeTrigger({
                 name: trigger,
                 args: Array.prototype.slice.call(arguments, 1)
@@ -96,21 +98,38 @@ duel.DuelAbstractChannel = (function () {
     };
 
     /**
+     * Alias of broadcast
+     * @param {string} trigger
+     */
+    DuelAbstractChannel.prototype.emit = function (trigger) {
+        this.broadcast(trigger);
+    };
+
+    /**
      *
      * @param {{name: string, args: []}} triggerDetails
+     * @param {boolean} force
      */
-    DuelAbstractChannel.prototype.executeTrigger = function (triggerDetails) {
-        if (!window.isMaster()) {
+    DuelAbstractChannel.prototype.executeTrigger = function (triggerDetails, force) {
+        force = force || false;
+        if (!(triggerDetails instanceof Object)) {
+            throw "triggerDetails should be an Object";
+        }
+        if (!this.currentWindowIsMaster() || force) {
             try {
-                this._triggers[triggerDetails.name].apply(this, triggerDetails.args);
-            } catch (e) {
-            }
+                if (this._triggers[triggerDetails.name] instanceof Array) {
+                    this._triggers[triggerDetails.name][0].apply(this, triggerDetails.args);
+                    delete this._triggers[triggerDetails.name];
+                } else {
+                    this._triggers[triggerDetails.name].apply(this, triggerDetails.args);
+                }
+            } catch (e) {}
         }
     };
 
     /**
      * @param {string} trigger
-     * @param {function} callback
+     * @param {function|[]} callback
      */
     DuelAbstractChannel.prototype.on = function (trigger, callback) {
         if (!this._triggers) {
@@ -122,6 +141,21 @@ duel.DuelAbstractChannel = (function () {
         }
 
         this._triggers[trigger] = callback;
+    };
+
+    /**
+     * @param {string} trigger
+     * @param {function} callback
+     */
+    DuelAbstractChannel.prototype.once = function (trigger, callback) {
+        this.on(trigger, [callback]);
+    };
+
+    /**
+     * @param {string} trigger
+     */
+    DuelAbstractChannel.prototype.off = function (trigger) {
+        try { delete this._triggers[trigger]; } catch (e) {}
     };
 
     return DuelAbstractChannel
@@ -213,7 +247,7 @@ duel.DuelLocalStorageChannel.prototype.currentWindowIsMaster = function () {
  * Only master can sends broadcast
  */
 duel.DuelLocalStorageChannel.prototype.broadcast = function (trigger) {
-    if (window.isMaster()) {
+    if (this.currentWindowIsMaster()) {
         // broadcast new task
         localStorage.setItem('dueljs_trigger', JSON.stringify({
             channelName: this.getName(),
@@ -258,6 +292,12 @@ duel.activeChannels = [];
  * @returns {duel.DuelLocalStorageChannel}
  */
 duel.channel = function (name) {
+    for (var chID in duel.activeChannels) {
+        if (duel.activeChannels.hasOwnProperty(chID) &&
+            duel.activeChannels[chID].getName() == name) {
+            return duel.activeChannels[chID];
+        }
+    }
     var channel = this.isLocalStorageAvailable()
         ? new this.DuelLocalStorageChannel(name) : new this.DuelFakeChannel(name);
     duel.activeChannels.push(channel);
@@ -291,7 +331,7 @@ window.onfocus = function () {
  */
 window.isMaster = function () {
     return duel.activeChannels.length ?
-        duel.activeChannels[0].currentWindowIsMaster() : false;
+        duel.activeChannels[0].currentWindowIsMaster() : true;
 };
 
 /**

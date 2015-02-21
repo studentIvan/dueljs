@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TabNinja page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//yastatic.net/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="../bower_components/duel/public/lib/duel.js"></script>
+    <script type="text/javascript" src="lib/tabninja.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <h2>Window <small id="wndID">...</small></h2>
+    <div><a class="btn btn-default" href="index.html" target="_blank">Open new window</a></div>
+</div>
+<script type="text/javascript">
+    var channel = duel.channel('test');
+    document.getElementById('wndID').innerHTML = (duel.getWindowID()).toString();
+
+    var buildTitleString = function () {
+        var titleStr = window.isSuperMaster() ? 'SuperMaster : ' : '';
+        titleStr += window.isMaster() ? 'Master : ' : 'Slave : ';
+        document.title = titleStr + duel.getWindowID();
+    };
+
+    buildTitleString();
+    setInterval(buildTitleString, 100);
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TabNinja page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//yastatic.net/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="lib/tabninja.without_duel.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <h2>Window <small id="wndID">...</small></h2>
+    <div><a class="btn btn-default" href="index.w.html" target="_blank">Open new window</a></div>
+</div>
+<script type="text/javascript">
+    document.getElementById('wndID').innerHTML = (tabNinja.ninjaName).toString();
+
+    var buildTitleString = function () {
+        var titleStr = window.isSuperMaster() ? 'SuperMaster : ' : '';
+        document.title = titleStr + (tabNinja.ninjaName).toString();
+    };
+
+    buildTitleString();
+    setInterval(buildTitleString, 100);
+</script>
+</body>
+</html>

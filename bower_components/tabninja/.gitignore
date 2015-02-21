@@ -1,0 +1,4 @@
+.idea
+node_modules
+npm_debug.log
+bower_components

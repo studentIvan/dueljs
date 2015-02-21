@@ -1,6 +1,6 @@
 {
   "name": "duel",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "http://dueljs.studentivan.ru",
   "authors": [
     "Maslov Ivan <mail@studentivan.ru>"
@@ -21,6 +21,8 @@
   "license": "MIT",
   "ignore": [
     "node_modules",
-    "bower_components"
+    "bower_components",
+    "docs",
+    "test"
   ]
 }
