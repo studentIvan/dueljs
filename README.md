@@ -1,4 +1,4 @@
-DuelJS v1.2.0
+DuelJS v1.2.1
 ======
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat-square)](http://dueljs.readthedocs.org/) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/studentIvan/dueljs/master/LICENSE) [![Bower](https://img.shields.io/bower/v/duel.svg?style=flat-square)](http://bower.io/search/?q=duel) [![](https://img.shields.io/github/issues-raw/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/issues/) [![GitHub stars](https://img.shields.io/github/stars/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/stargazers)
 
@@ -7,6 +7,9 @@ JavaScript HTML5 Master/Slave Browser Tabs Helper.
 See a brief look on [the homepage](http://dueljs.studentivan.ru)
 
 Documentation available on http://dueljs.readthedocs.org/
+
+######New in 1.2.1:
+* Fixed [#5](https://github.com/studentIvan/dueljs/issues/5): localStorage - stack overflow problem (thanks to Alex Core <brojecter@yandex.ru>)
 
 ######New in 1.2.0:
 * New method: channel.off - stop watching event
@@ -28,8 +31,8 @@ duel.useStorageEvent = false; // auto false in IE
 
 ######List of attested browsers:
 
-1. Opera 27.0.1689.33 (with storage event)
-2. Chrome 39.0.2171.95 (with storage event)
+1. Opera 29.0.1795.35 (with storage event)
+2. Chrome 41.0.2272.118 (with storage event)
 3. Firefox 34.0 (with storage event)
 4. Internet Explorer 11 (without storage event)
 5. Safari 534.57.2 (with storage event)
