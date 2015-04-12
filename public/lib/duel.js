@@ -1,5 +1,5 @@
 /*!
- * DuelJS JavaScript Library v1.2.0
+ * DuelJS JavaScript Library v1.2.1
  * https://github.com/studentIvan/dueljs
  * http://dueljs.readthedocs.org/en/latest/
  *
@@ -424,4 +424,23 @@ if (duel.isLocalStorageAvailable()) {
             }
         }, 100);
     }
+    duel.addEvent(window, 'unload', function () {
+        var wID = duel.getWindowID(), ch, len, i, j, chName, wIndex;
+        for (i = duel.activeChannels.length - 1; i >= 0; i--) {
+            try {
+                chName = 'dueljs_channel_' + duel.activeChannels[i].getName();
+                if (ch = localStorage.getItem(chName)) {
+                    for (ch = JSON.parse(ch), wIndex = -1, j = 0, len = ch.length; j < len; j++) {
+                        if (ch[j].id === wID) {
+                            ch.splice(j, 1);
+                            localStorage.setItem(chName, JSON.stringify(ch));
+                            break;
+                        }
+                    }
+                }
+            } catch (e) {
+                // stop to exceptions
+            }
+        }
+    });
  }
