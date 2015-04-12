@@ -1,5 +1,5 @@
 /*!
- * DuelJS JavaScript Library v1.2.1
+ * DuelJS JavaScript Library v1.2.2
  * https://github.com/studentIvan/dueljs
  * http://dueljs.readthedocs.org/en/latest/
  *
@@ -432,6 +432,10 @@ if (duel.isLocalStorageAvailable()) {
                 if (ch = localStorage.getItem(chName)) {
                     for (ch = JSON.parse(ch), wIndex = -1, j = 0, len = ch.length; j < len; j++) {
                         if (ch[j].id === wID) {
+                            if (ch[j].master) {
+                                ch[j].master = false;
+                                ch[0].master = true;
+                            }
                             ch.splice(j, 1);
                             localStorage.setItem(chName, JSON.stringify(ch));
                             break;
