@@ -1,5 +1,5 @@
 /*!
- * DuelJS JavaScript Library v1.2.2
+ * DuelJS JavaScript Library v1.2.3
  * https://github.com/studentIvan/dueljs
  * http://dueljs.readthedocs.org/en/latest/
  *
