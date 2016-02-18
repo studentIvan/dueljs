@@ -1,4 +1,4 @@
-DuelJS v1.2.2
+DuelJS v1.2.3
 ======
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat-square)](http://dueljs.readthedocs.org/) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/studentIvan/dueljs/master/LICENSE) [![Bower](https://img.shields.io/bower/v/duel.svg?style=flat-square)](http://bower.io/search/?q=duel) [![](https://img.shields.io/github/issues-raw/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/issues/) [![GitHub stars](https://img.shields.io/github/stars/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/stargazers)
 
@@ -7,6 +7,10 @@ JavaScript HTML5 Master/Slave Browser Tabs Helper.
 See a brief look on [the homepage](http://dueljs.studentivan.ru)
 
 Documentation available on http://dueljs.readthedocs.org/
+
+######New in 1.2.3:
+* UMD compatible (thanks to RasCarlito <cogren@eleven-labs.com>)
+* Microsoft Edge attested (thanks to toby11)
 
 ######New in 1.2.2:
 * Fixed some additional bugs (extra-release)
@@ -40,6 +44,7 @@ duel.useStorageEvent = false; // auto false in IE
 4. Internet Explorer 11 (without storage event)
 5. Safari 534.57.2 (with storage event)
 6. Android 4.3 LT29i default browser (with storage event)
+7. Microsoft Edge 25.10586.0.0 (with storage event)
 
 Internet Explorer does incorrect. So it using force `useStorageEvent = false` by default.
 
