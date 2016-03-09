@@ -168,6 +168,11 @@ describe('DuelJS test case 1', function () {
                         channel.off('test_event');
                         expect(Object.size(channel._triggers)).to.eql(0);
                     });
+
+                    it('should create item and get him back', function () {
+                        channel.setItem('x', 10);
+                        expect(channel.getItem('x')).to.eql(10);
+                    });
                 });
             });
         });
