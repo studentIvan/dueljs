@@ -1,6 +1,6 @@
 {
   "name": "duel",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "homepage": "http://dueljs.studentivan.ru",
   "authors": [
     "Maslov Ivan <mail@studentivan.ru>"
@@ -25,13 +25,14 @@
     "docs",
     "test"
   ],
-  "_release": "1.2.4",
+  "_release": "1.2.5",
   "_resolution": {
     "type": "version",
-    "tag": "1.2.4",
-    "commit": "91e27d6e82fcf616618b04f1a7347904aa29fa70"
+    "tag": "1.2.5",
+    "commit": "f4220d3c580a69a6729f8110256d1900c31a15cc"
   },
   "_source": "git://github.com/studentIvan/dueljs.git",
-  "_target": "^1.2.0",
-  "_originalSource": "duel"
+  "_target": "^1.2.5",
+  "_originalSource": "duel",
+  "_direct": true
 }
