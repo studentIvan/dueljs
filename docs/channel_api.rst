@@ -1,6 +1,28 @@
 API:channel object interface
 ============================
 
+channel.getItem(varName:string)
+-------------------------------
+Get jsonify var content from storage.
+
+* public
+* type: function
+* returns: mixed
+
+channel.setItem(varName:string, value:mixed)
+--------------------------------------------
+Set storage variable content.
+
+* public
+* type: function
+
+channel.removeItem(varName:string)
+----------------------------------
+Remove var from storage.
+
+* public
+* type: function
+
 channel.getName()
 -----------------
 Returns the name of this channel.

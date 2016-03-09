@@ -24,6 +24,14 @@ Optional configuration. Storage event improves performance in modern browsers.
 * type: boolean
 * default: true (IE - false)
 
+duel.noWarnings
+---------------
+Optional configuration. You can turn it to false for debug.
+
+* public
+* type: boolean
+* default: true (IE - false)
+
 duel.isLocalStorageAvailable()
 ------------------------------
 Common function for localStorage detection.
