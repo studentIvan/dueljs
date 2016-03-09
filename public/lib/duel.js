@@ -1,5 +1,5 @@
 /*!
- * DuelJS JavaScript Library v1.2.4
+ * DuelJS JavaScript Library v1.2.5
  * https://github.com/studentIvan/dueljs
  * http://dueljs.readthedocs.org/en/latest/
  *
@@ -133,7 +133,7 @@
      * @return {object|string|number|boolean} value
      */
     DuelAbstractChannel.prototype.getItem = function (varName) {
-      varName += ':dueljs:variable';
+      varName += ':dueljs:variable:' + this.getName();
       return this.__storage ? ((typeof angular == "object") ? angular.fromJson(this.__storage.getItem(varName)) : JSON.parse(this.__storage.getItem(varName), true)) : null;
     };
 
@@ -144,7 +144,7 @@
      */
     DuelAbstractChannel.prototype.setItem = function (varName, value) {
       if (this.__storage) {
-        varName += ':dueljs:variable';
+        varName += ':dueljs:variable:' + this.getName();
         this.__storage.setItem(varName, (typeof angular == "object") ? angular.toJson(value) : JSON.stringify(value));
       }
     };
@@ -155,7 +155,7 @@
      */
     DuelAbstractChannel.prototype.removeItem = function (varName) {
       if (this.__storage) {
-        varName += ':dueljs:variable';
+        varName += ':dueljs:variable:' + this.getName();
         this.__storage.removeItem(varName);
       }
     };
