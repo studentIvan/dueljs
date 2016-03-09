@@ -30,7 +30,7 @@ Optional configuration. You can turn it to false for debug.
 
 * public
 * type: boolean
-* default: true (IE - false)
+* default: true
 
 duel.isLocalStorageAvailable()
 ------------------------------
