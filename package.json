@@ -35,7 +35,8 @@
   "author": "Maslov Ivan <mail@studentivan.ru>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/studentIvan/dueljs/issues"
+    "url": "https://github.com/studentIvan/dueljs/issues",
+    "email": "mail@studentivan.ru"
   },
   "homepage": "http://dueljs.studentivan.ru"
 }
