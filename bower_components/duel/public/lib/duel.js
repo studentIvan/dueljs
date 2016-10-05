@@ -49,7 +49,15 @@
    */
   duel.isLocalStorageAvailable = function () {
     try {
-      return 'localStorage' in window && window['localStorage'] !== null && window['localStorage'] !== undefined;
+      var hasStorage = typeof localStorage !== 'undefined' && ('setItem' in localStorage) && localStorage.setItem;
+      if (!hasStorage) {
+        return false;
+      }
+
+      var uid = new Date;
+      localStorage.setItem(uid, uid);
+      localStorage.removeItem(uid);
+      return true;
     } catch (e) {
       return false;
     }
