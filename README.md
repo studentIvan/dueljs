@@ -9,8 +9,8 @@ See a brief look on [the homepage](http://dueljs.studentivan.ru)
 Documentation available on http://dueljs.readthedocs.org/
 
 ######New in 1.2.6:
-* Fixed some bugs
-* Library added to npm
+* Fixed [#11](https://github.com/studentIvan/dueljs/issues/11): localstorage issue for private browsing (thanks to Stéphane Bachelier <stephane.bachelier@gmail.com>)
+* Library added to npm as dueljs
 
 ######New in 1.2.5:
 * Different variables for each channel (setItem, getItem, removeItem)
