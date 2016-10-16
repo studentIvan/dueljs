@@ -2,15 +2,18 @@ sudo: required
 language: node_js
 node_js:
   - "6.1"
+before_install:
+  # setting the path for phantom.js 2.0.0
+  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update -q
+  - sudo apt-get install gcc-4.8 -y
 addons:
   apt:
     sources:
       - google-chrome
     packages:
       - google-chrome-stable
-before_install:
-  # setting the path for phantom.js 2.0.0
-  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
 env:
   - NODE_ENV="development"
 install:
