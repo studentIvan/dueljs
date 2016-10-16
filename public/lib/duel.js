@@ -388,7 +388,7 @@
   duel.channel = function (name) {
     for (var chID in duel.activeChannels) {
       if (duel.activeChannels.hasOwnProperty(chID) &&
-        duel.activeChannels[chID].getName() == name) {
+        duel.activeChannels[chID].getName() === name) {
         return duel.activeChannels[chID];
       }
     }
@@ -469,14 +469,14 @@
    * @param event
    */
   duel.storageEvent = function (event) {
-    if (event.key == 'dueljs_trigger') {
+    if (event.key === 'dueljs_trigger') {
       /**
        * @type {{channelName: string, triggerDetails: {name: string, args: []}}}
        */
       var eventDetails = JSON.parse(event.newValue);
       for (var i = duel.activeChannels.length - 1; i >= 0; i--) {
         try {
-          if (duel.activeChannels[i].getName() == eventDetails.channelName) {
+          if (duel.activeChannels[i].getName() === eventDetails.channelName) {
             duel.activeChannels[i].executeTrigger(eventDetails.triggerDetails);
           }
         } catch (e) {
@@ -498,7 +498,7 @@
        */
       duel.addEvent(window, 'storage', function (e) {
         var event = e || event || window.event;
-        if (event.key == 'dueljs_trigger_event_key' && event.newValue != duel.storageOldTriggerValue) {
+        if (event.key == 'dueljs_trigger_event_key' && event.newValue !== duel.storageOldTriggerValue) {
           duel.storageOldTriggerValue = window.localStorage.getItem('dueljs_trigger_event_key');
           duel.storageEvent({
             key: 'dueljs_trigger',
@@ -508,7 +508,7 @@
       });
     } else {
       setInterval(function () {
-        if (window.localStorage.getItem('dueljs_trigger_event_key') != duel.storageOldTriggerValue) {
+        if (window.localStorage.getItem('dueljs_trigger_event_key') !== duel.storageOldTriggerValue) {
           duel.storageOldTriggerValue = window.localStorage.getItem('dueljs_trigger_event_key');
           duel.storageEvent({
             key: 'dueljs_trigger',
