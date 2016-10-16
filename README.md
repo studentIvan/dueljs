@@ -1,6 +1,6 @@
-DuelJS v1.2.8-dev
+DuelJS v1.2.7
 ======
-[![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat-square)](http://dueljs.readthedocs.org/) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/studentIvan/dueljs/master/LICENSE) [![Bower](https://img.shields.io/bower/v/duel.svg?style=flat-square)](http://bower.io/search/?q=duel) [![](https://img.shields.io/github/issues-raw/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/issues/) [![GitHub stars](https://img.shields.io/github/stars/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/stargazers)
+[![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat-square)](http://dueljs.readthedocs.org/) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/studentIvan/dueljs/master/LICENSE) [![Bower](https://img.shields.io/bower/v/duel.svg?style=flat-square)](http://bower.io/search/?q=duel) [![](https://img.shields.io/github/issues-raw/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/issues/) [![GitHub stars](https://img.shields.io/github/stars/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/stargazers) [![Tests passed](https://travis-ci.org/studentIvan/dueljs.svg?branch=dev)](https://travis-ci.org/studentIvan/dueljs)
 
 JavaScript HTML5 Master/Slave Browser Tabs Helper.
 
