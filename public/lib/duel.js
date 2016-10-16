@@ -498,7 +498,7 @@
        */
       duel.addEvent(window, 'storage', function (e) {
         var event = e || event || window.event;
-        if (event.key == 'dueljs_trigger_event_key' && event.newValue !== duel.storageOldTriggerValue) {
+        if (event.key === 'dueljs_trigger_event_key' && event.newValue !== duel.storageOldTriggerValue) {
           duel.storageOldTriggerValue = window.localStorage.getItem('dueljs_trigger_event_key');
           duel.storageEvent({
             key: 'dueljs_trigger',
