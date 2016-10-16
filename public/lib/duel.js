@@ -71,12 +71,16 @@
   duel.clone = function (obj) {
     var copy;
 
-    if (null == obj || "object" != typeof obj) return obj;
+    if (null == obj || "object" != typeof obj) {
+      return obj;
+    }
 
     if (obj instanceof Object) {
       copy = {};
       for (var attr in obj) {
-        if (obj.hasOwnProperty(attr)) copy[attr] = duel.clone(obj[attr]);
+        if (obj.hasOwnProperty(attr)) {
+          copy[attr] = duel.clone(obj[attr]);
+        }
       }
       return copy;
     }
@@ -87,7 +91,7 @@
   /**
    * @abstract
    */
-  duel.DuelAbstractChannel = (function () {
+  duel.DuelAbstractChannel = ((function () {
     /**
      * @constructor
      */
@@ -231,8 +235,8 @@
       } catch (e) {}
     };
 
-    return DuelAbstractChannel
-  })();
+    return DuelAbstractChannel;
+  })());
 
   /**
    * @returns {number}
@@ -278,20 +282,23 @@
   duel.DuelLocalStorageChannel.prototype.setCurrentWindowAsMaster = function () {
     var i, len, ch, wIndex, wID = duel.getWindowID(),
       chName = 'dueljs_channel_' + this.getName();
-    if (ch = this.__storage.getItem(chName)) {
+
+    ch = this.__storage.getItem(chName);
+
+    if (ch) {
       for (ch = JSON.parse(ch), wIndex = -1, i = 0, len = ch.length; i < len; i++) {
         ch[i].master = false;
         if (ch[i].id === wID) {
-          wIndex = i
+          wIndex = i;
         }
       }
       if (wIndex === -1) {
         ch.push({
           id: wID,
           master: true
-        })
+        });
       } else {
-        ch[wIndex].master = true
+        ch[wIndex].master = true;
       }
       this.__storage.setItem(chName, JSON.stringify(ch));
     } else {
@@ -418,7 +425,7 @@
   /**
    * Cross-browser addEvent method
    */
-  duel.addEvent = (function () {
+  duel.addEvent = ((function () {
     if (document.addEventListener) {
       return function (el, type, fn) {
         if (el && el.nodeName || el === window) {
@@ -442,7 +449,7 @@
         }
       };
     }
-  })();
+  })());
 
   /**
    * Makes tab focus trigger for modern browsers (more correctly)
