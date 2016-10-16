@@ -24,5 +24,7 @@
     "bower_components",
     "docs",
     "test"
+    ".travis.yml"
+    ".npmignore"
   ]
 }
