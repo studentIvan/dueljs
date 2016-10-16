@@ -4,7 +4,7 @@ node_js:
   - "6.1"
 before_install:
   # setting the path for phantom.js 2.0.0
-  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+  - export PATH=/usr/local/phantomjs-2.1.1/bin:$PATH
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt-get update -q
   - sudo apt-get install gcc-4.8 -y
@@ -18,8 +18,8 @@ env:
   - NODE_ENV="development"
 install:
   - mkdir travis-phantomjs
-  - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-  - tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
+  - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.1.1-ubuntu-12.04.tar.bz2 -O $PWD/travis-phantomjs/phantomjs-2.1.1-ubuntu-12.04.tar.bz2
+  - tar -xvf $PWD/travis-phantomjs/phantomjs-2.1.1-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
   - export PATH=$PWD/travis-phantomjs:$PATH
   - npm install --only=dev
 script:
