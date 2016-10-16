@@ -317,7 +317,10 @@
   duel.DuelLocalStorageChannel.prototype.currentWindowIsMaster = function () {
     var i, len, ch, wIndex, wID = duel.getWindowID(),
       chName = 'dueljs_channel_' + this.getName();
-    if (ch = this.__storage.getItem(chName)) {
+
+    ch = this.__storage.getItem(chName);
+
+    if (ch) {
       for (ch = JSON.parse(ch), wIndex = -1, i = 0, len = ch.length; i < len; i++) {
         if (ch[i].id === wID) {
           wIndex = i;
@@ -518,7 +521,8 @@
       for (i = duel.activeChannels.length - 1; i >= 0; i--) {
         try {
           chName = 'dueljs_channel_' + duel.activeChannels[i].getName();
-          if (ch = window.localStorage.getItem(chName)) {
+          ch = window.localStorage.getItem(chName);
+          if (ch) {
             for (ch = JSON.parse(ch), wIndex = -1, j = 0, len = ch.length; j < len; j++) {
               if (ch[j].id === wID) {
                 if (ch[j].master) {
