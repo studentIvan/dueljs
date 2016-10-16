@@ -1,5 +1,5 @@
 /*!
- * DuelJS JavaScript Library v1.2.5
+ * DuelJS JavaScript Library v1.2.7
  * https://github.com/studentIvan/dueljs
  * http://dueljs.readthedocs.org/en/latest/
  *
@@ -24,7 +24,7 @@
     // Browser globals
     root.duel = factory(root);
   }
-}(this, function (window) {
+}(typeof window !== "undefined" ? window : this, function (window) {
   var duel = {};
 
   /**

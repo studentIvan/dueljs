@@ -1,4 +1,4 @@
-DuelJS v1.2.6
+DuelJS v1.2.7
 ======
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat-square)](http://dueljs.readthedocs.org/) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/studentIvan/dueljs/master/LICENSE) [![Bower](https://img.shields.io/bower/v/duel.svg?style=flat-square)](http://bower.io/search/?q=duel) [![](https://img.shields.io/github/issues-raw/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/issues/) [![GitHub stars](https://img.shields.io/github/stars/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/stargazers)
 
@@ -7,6 +7,9 @@ JavaScript HTML5 Master/Slave Browser Tabs Helper.
 See a brief look on [the homepage](http://dueljs.studentivan.ru)
 
 Documentation available on http://dueljs.readthedocs.org/
+
+######New in 1.2.7:
+* Fixed [#13](https://github.com/studentIvan/dueljs/issues/13): webpack import
 
 ######New in 1.2.6:
 * Fixed [#11](https://github.com/studentIvan/dueljs/issues/11): localstorage issue for private browsing (thanks to Stéphane Bachelier <stephane.bachelier@gmail.com>)
@@ -74,3 +77,25 @@ Internet Explorer does incorrect. So it using force `useStorageEvent = false` by
 
 ######How it works with Internet Explorer without storage event?
 Don't worry. It using setInterval javascript checking.
+
+######Testing suite
+1. NodeJS version 6.7.0
+2. PhantomJS version 2.1.1
+3. Chai version 3.5.0
+4. Mocha version 3.1.0
+5. Mocha-PhantomJS custom fork of 4.1.0
+
+In Mac OS Sierra you want to use phantomjs from brew (brew install phantomjs) and check to link it:
+
+```
+$ which phantomjs
+/usr/local/bin/phantomjs
+```
+
+And also you can create this link by yourself:
+
+```
+ln -s /usr/local/Cellar/phantomjs/2.1.1/bin/phantomjs /usr/local/bin/phantomjs
+```
+
+The reason I temporary changed original repo of mocha-phantomjs to git+https://github.com/studentIvan/mocha-phantomjs.git#master is cause mocha-phantomjs doesn't support the second phantomjs right now.

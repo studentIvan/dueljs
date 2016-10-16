@@ -1,20 +1,18 @@
 {
   "name": "dueljs",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "DuelJS - JavaScript HTML5 Master/Slave Browser Tabs Helper",
   "main": "public/lib/duel.js",
   "devDependencies": {
-    "chai": "^1.10.0",
-    "mocha": "^2.1.0",
-    "mocha-phantomjs": "^3.5.3",
-    "phantomjs": "^1.9.13",
-    "http-server": "*",
+    "chai": "3.5.0",
+    "mocha": "3.1.0",
+    "mocha-phantomjs": "git+https://github.com/studentIvan/mocha-phantomjs.git#master",
     "uglifyjs": "*"
   },
   "scripts": {
-    "pretest": "npm install && mocha-phantomjs test/mocha.test.html && mocha-phantomjs test/mocha.min.test.html",
+    "pretest": "npm install && node_modules/.bin/mocha-phantomjs test/mocha.test.umd.html && node_modules/.bin/mocha-phantomjs test/mocha.test.html && node_modules/.bin/mocha-phantomjs test/mocha.min.test.html",
     "test": "phantomjs test/phantom.script.js",
-    "start": "npm install && node_modules/.bin/http-server",
+    "start": "npm install && http-server -p 8089",
     "min": "npm install && node_modules/.bin/uglifyjs --compress --bare-returns --keep-fnames --source-map=public/lib/duel.min.js.map --source-map-url=duel.min.js.map --output=public/lib/duel.min.js --mangle -- public/lib/duel.js"
   },
   "repository": {
