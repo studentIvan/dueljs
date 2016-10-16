@@ -232,7 +232,9 @@
     DuelAbstractChannel.prototype.off = function (trigger) {
       try {
         delete this._triggers[trigger];
-      } catch (e) {}
+      } catch (e) {
+        // stop to exceptions
+      }
     };
 
     return DuelAbstractChannel;
