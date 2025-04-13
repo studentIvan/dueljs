@@ -505,7 +505,7 @@
         }
       }, 100);
     }
-    duel.addEvent(window, 'unload', function () {
+    duel.addEvent(window, 'pagehide', function () {
       var wID = duel.getWindowID(),
         ch, len, i, j, chName, wIndex;
       for (i = duel.activeChannels.length - 1; i >= 0; i--) {
