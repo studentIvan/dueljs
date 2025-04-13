@@ -2,6 +2,8 @@ DuelJS v1.2.7
 ======
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat-square)](http://dueljs.readthedocs.org/) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/studentIvan/dueljs/master/LICENSE) [![Bower](https://img.shields.io/bower/v/duel.svg?style=flat-square)](http://bower.io/search/?q=duel) [![](https://img.shields.io/github/issues-raw/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/issues/) [![GitHub stars](https://img.shields.io/github/stars/studentIvan/dueljs.svg?style=flat-square)](https://github.com/studentIvan/dueljs/stargazers) [![Travis branch](https://img.shields.io/travis/studentIvan/dueljs/master.svg?style=flat-square)](https://travis-ci.org/studentIvan/dueljs)
 
+UPD (2025): It's been many years since the last release, I didn't think that this library is still needed by anyone. In the next 2-3 weeks I will update the code and rework everything to the latest current states, thanks :)
+
 JavaScript HTML5 Master/Slave Browser Tabs Helper.
 
 See a brief look on [the homepage](http://dueljs.studentivan.ru)
