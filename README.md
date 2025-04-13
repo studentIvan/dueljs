@@ -4,6 +4,8 @@ DuelJS v1.2.7
 
 UPD (2025): It's been many years since the last release, I didn't think that this library is still needed by anyone. In the next 2-3 weeks I will update the code and rework everything to the latest current states, thanks :)
 
+======================================
+
 JavaScript HTML5 Master/Slave Browser Tabs Helper.
 
 See a brief look on [the homepage](http://dueljs.studentivan.ru)
